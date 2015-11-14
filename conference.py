@@ -768,8 +768,8 @@ class ConferenceApi(remote.Service):
         return StringMessage(data=memcache.get(MEMCACHE_FEATURED_SPEAKER_KEY) or "")
 
     @endpoints.method(message_types.VoidMessage, SessionForms,
-            http_method='GET', name='getEarlyNonWorkshopSessions')
-    def getEarlyNonWorkshopSessions(self, request):
+            http_method='GET', name='getQueryProblem')
+    def getQueryProblem(self, request):
         """Returns non-workshop sessions occurring before 7pm"""
 
         sessions = Session.query(Session.startTime <= time(hour=19))
