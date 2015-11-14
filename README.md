@@ -52,3 +52,8 @@ To deploy this API server locally, ensure that you have downloaded and installed
 6. Run the app with the devserver using dev_appserver.py DIR, and ensure it's running by visiting your local server's address (by default [localhost:8080][5].)
 7. (Optional) Generate your client library(ies) with [the endpoints tool][6].
 8. (Optional) Deploy the application via appcfg.py update.
+
+# Refrences
+https://github.com/DawoonC/dw-conference/blob/master/conference.py
+https://github.com/allanbreyes/udacity-full-stack/tree/master/p4
+https://github.com/simplydallas/FSND-Project-4/blob/master/conference.py
