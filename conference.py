@@ -701,6 +701,24 @@ class ConferenceApi(remote.Service):
 
         return SessionForms(items=[self._copySessionToForm(session) for session in sessions])
 
+    @endpoints.method(SESSION_GET_REQUEST, SessionForms,
+            path='session/{websafeConferenceKey}/{typeOfSession}',
+            http_method='GET', name='getConferenceSessionsByType')
+    def getConferenceSessionsByType(self, request):
+        """Given a conference, return all sessions of a specified type"""
+        # get Conference object from request; fail if not found
+        c_key = ndb.Key(urlsafe=request.websafeConferenceKey)
+
+        if not c_key.get():
+            raise endpoints.NotFoundException(
+                'No conference found with key: %s' % request.websafeConferenceKey)
+
+        sessions = Session.query(ancestor=c_key).filter(Session.typeOfSession == request.typeOfSession)
+
+        return SessionForms(
+            items=[self._copySessionToForm(session) for session in sessions]
+        )
+
     @endpoints.method(SPEAKER_GET_REQUEST, SessionForms,
             path='sessions/{speaker}',
             http_method='GET', name='getSessionsBySpeaker')
@@ -749,6 +767,21 @@ class ConferenceApi(remote.Service):
         """Returns featured speaker and sessions from memcache."""
         return StringMessage(data=memcache.get(MEMCACHE_FEATURED_SPEAKER_KEY) or "")
 
+    @endpoints.method(message_types.VoidMessage, SessionForms,
+            http_method='GET', name='getEarlyNonWorkshopSessions')
+    def getEarlyNonWorkshopSessions(self, request):
+        """Returns non-workshop sessions occurring before 7pm"""
+
+        sessions = Session.query(Session.startTime <= time(hour=19))
+
+        filtered_session = []
+        for session in sessions:
+            if 'workshop' not in session.typeOfSession:
+                filtered_sessions.append(session)
+
+        return SessionForms(
+            items=[self._copySessionToForm(session) for session in filtered_session]
+        )
 
 # - - - - WishList - - - - - - - - - - - -
 

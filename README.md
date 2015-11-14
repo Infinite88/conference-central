@@ -26,11 +26,15 @@ I based these endpoints off of the Conference class since they were similar.
 
 ## Task 2: Add Sessions to User Wishlist
 
+- `addSessionToWishlist`: given a session websafe key, saves a session to a user's wishlist.
+- `getSessionsInWishlist`: return a user's wishlist.
+
 This was also referenced from conference registration functionality.
 
 ## Task 3: Work on indexes and queries
 
-Instead of creating a specialized session query, i based sessions queries off of conference queries. START_TIME, TYPE_OF_SESSION, SPEAKER, and DURATION can be queried.
+- `getSessionsByVenue`: Returns sessions at a given venue. Some people may prefer a conference at a certain type of venue i.e a casino.
+- `getSessionByDuration`: Returns a session with an equal to or less than duration. For indivduals who may prefer a shorter duration. 
 
 ## Task 4: Add a Task
 
