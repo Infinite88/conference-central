@@ -34,7 +34,9 @@ This was also referenced from conference registration functionality.
 ## Task 3: Work on indexes and queries
 
 - `getSessionsByVenue`: Returns sessions at a given venue. Some people may prefer a conference at a certain type of venue i.e a casino.
-- `getSessionByDuration`: Returns a session with an equal to or less than duration. For indivduals who may prefer a shorter duration. 
+- `getSessionByDuration`: Returns a session with an equal to or less than duration. For indivduals who may prefer a shorter duration.
+
+Datastore can only filter a simple inequality at one time. Implementing the time filter first and have python filter after that is a way to work around this issue.
 
 ## Task 4: Add a Task
 
