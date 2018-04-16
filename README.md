@@ -47,15 +47,10 @@ getFeaturedSpeaker method uses memcache to store the featured speaker.
 To deploy this API server locally, ensure that you have downloaded and installed the Google App Engine SDK for Python. Once installed, conduct the following steps:
 
 1. Clone this repository by entering the following command 'git clone https://github.com/Infinite88/conference-central.git'
-2. (Optional) Update the value of application in app.yaml to the app ID you have registered in the App Engine admin console and would like to use to host your instance of this sample.
-3. (Optional) Update the values at the top of settings.py to reflect the respective client IDs you have registered in the [Developer Console][4].
-4. (Optional) Update the value of CLIENT_ID in static/js/app.js to the Web client ID
-5.(Optional) Mark the configuration files as unchanged as follows: $ git update-index --assume-unchanged app.yaml settings.py static/js/app.js
+2. Update the value of application in app.yaml to the app ID you have registered in the App Engine admin console and would like to use to host your instance of this sample.
+3. Update the values at the top of settings.py to reflect the respective client IDs you have registered in the [Developer Console][4].
+4. Update the value of CLIENT_ID in static/js/app.js to the Web client ID
+5. Mark the configuration files as unchanged as follows: $ git update-index --assume-unchanged app.yaml settings.py static/js/app.js
 6. Run the app with the devserver using dev_appserver.py DIR, and ensure it's running by visiting your local server's address (by default [localhost:8080][5].)
-7. (Optional) Generate your client library(ies) with [the endpoints tool][6].
-8. (Optional) Deploy the application via appcfg.py update.
-
-# Refrences
-https://github.com/DawoonC/dw-conference/blob/master/conference.py
-https://github.com/allanbreyes/udacity-full-stack/tree/master/p4
-https://github.com/simplydallas/FSND-Project-4/blob/master/conference.py
+7. Generate your client library(ies) with [the endpoints tool][6].
+8. Deploy the application via appcfg.py update.
